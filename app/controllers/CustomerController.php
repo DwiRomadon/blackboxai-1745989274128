@@ -20,7 +20,7 @@ class CustomerController extends Controller {
                 'address' => $_POST['address'] ?? '',
             ];
             $this->customerModel->create($data);
-            $this->redirect('/customer/index');
+            $this->redirect('customer/index');
         } else {
             $this->view('customers/create');
         }
@@ -35,7 +35,7 @@ class CustomerController extends Controller {
                 'address' => $_POST['address'] ?? '',
             ];
             $this->customerModel->update($id, $data);
-            $this->redirect('/customer/index');
+            $this->redirect('customer/index');
         } else {
             $customer = $this->customerModel->getById($id);
             if (!$customer) {
@@ -49,6 +49,6 @@ class CustomerController extends Controller {
 
     public function delete($id) {
         $this->customerModel->delete($id);
-        $this->redirect('/customer/index');
+        $this->redirect('customer/index');
     }
 }
