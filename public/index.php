@@ -14,12 +14,11 @@ spl_autoload_register(function ($class) {
     }
 });
 
-// Simple routing based on URL parameter 'url'
-$url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : 'home/index';
+$url = isset($_GET['url']) ? trim($_GET['url'], '/') : 'home/index';
 $urlSegments = explode('/', $url);
 
-$controllerName = ucfirst($urlSegments[0]) . 'Controller';
-$action = isset($urlSegments[1]) ? $urlSegments[1] : 'index';
+$controllerName = ucfirst(strtolower($urlSegments[0])) . 'Controller';
+$action = isset($urlSegments[1]) ? strtolower($urlSegments[1]) : 'index';
 $params = array_slice($urlSegments, 2);
 
 if (class_exists($controllerName)) {
