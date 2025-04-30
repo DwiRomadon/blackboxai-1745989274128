@@ -21,7 +21,7 @@ class ProductController extends Controller {
                 'quantity' => $_POST['quantity'] ?? 0,
             ];
             $this->productModel->create($data);
-            $this->redirect('/product/index');
+            $this->redirect('product/index');
         } else {
             $this->view('products/create');
         }
@@ -37,7 +37,7 @@ class ProductController extends Controller {
                 'quantity' => $_POST['quantity'] ?? 0,
             ];
             $this->productModel->update($id, $data);
-            $this->redirect('/product/index');
+            $this->redirect('product/index');
         } else {
             $product = $this->productModel->getById($id);
             if (!$product) {
@@ -51,6 +51,6 @@ class ProductController extends Controller {
 
     public function delete($id) {
         $this->productModel->delete($id);
-        $this->redirect('/product/index');
+        $this->redirect('product/index');
     }
 }
