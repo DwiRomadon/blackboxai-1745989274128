@@ -6,6 +6,9 @@ class Controller {
     }
 
     protected function redirect($url) {
+        if (strpos($url, '/') !== 0) {
+            $url = '/' . $url;
+        }
         header("Location: " . $url);
         exit;
     }
