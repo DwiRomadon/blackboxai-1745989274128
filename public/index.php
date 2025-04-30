@@ -21,6 +21,8 @@ $controllerName = ucfirst(strtolower($urlSegments[0])) . 'Controller';
 $action = isset($urlSegments[1]) ? strtolower($urlSegments[1]) : 'index';
 $params = array_slice($urlSegments, 2);
 
+echo "Routing to controller: $controllerName, action: $action\n";
+
 if (class_exists($controllerName)) {
     $controller = new $controllerName();
     if (method_exists($controller, $action)) {
