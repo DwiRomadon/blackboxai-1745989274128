@@ -70,7 +70,7 @@ class SaleController extends Controller {
                 ]);
             }
 
-            $this->redirect('/sale/index');
+            $this->redirect('sale/index');
         } else {
             $products = $this->productModel->getAll();
             $customers = $this->customerModel->getAll();
@@ -92,6 +92,6 @@ class SaleController extends Controller {
     public function delete($id) {
         $this->saleItemModel->deleteBySaleId($id);
         $this->saleModel->delete($id);
-        $this->redirect('/sale/index');
+        $this->redirect('sale/index');
     }
 }
