@@ -17,7 +17,7 @@ class CategoryController extends Controller {
                 'name' => $_POST['name'] ?? '',
             ];
             $this->categoryModel->create($data);
-            $this->redirect('/category/index');
+            $this->redirect('category/index');
         } else {
             $this->view('categories/create');
         }
@@ -29,7 +29,7 @@ class CategoryController extends Controller {
                 'name' => $_POST['name'] ?? '',
             ];
             $this->categoryModel->update($id, $data);
-            $this->redirect('/category/index');
+            $this->redirect('category/index');
         } else {
             $category = $this->categoryModel->getById($id);
             if (!$category) {
@@ -43,6 +43,6 @@ class CategoryController extends Controller {
 
     public function delete($id) {
         $this->categoryModel->delete($id);
-        $this->redirect('/category/index');
+        $this->redirect('category/index');
     }
 }
